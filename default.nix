@@ -10,7 +10,7 @@ let
     guile
     lua
     nasm
-    nodejs-14_x yarn
+    nodejs yarn
     ocaml
     perl
     python3
