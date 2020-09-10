@@ -7,8 +7,8 @@ Tons of languages. Tons of snippets. Run them all!
 If you have Nix and Emacs, from the repository root:
 
 #+begin_src sh
-  lorri init            # activate lorri in repo
-  direnv allow          # let direnv work here
+  lorri init              # activate lorri in repo
+  direnv allow            # let direnv work here
   nix-shell                   # download/install compilers/runtimes
   emacs -l babix.el babix.org # install emacs language modes
 #+end_src
