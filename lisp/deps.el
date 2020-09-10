@@ -13,6 +13,8 @@
 (use-package rust-mode)
 (use-package tuareg) ;; OCaml
 
+(setq geiser-active-implementations '(guile))
+
 (use-package ob-csharp
   :straight (ob-csharp :type git
                        :host github
