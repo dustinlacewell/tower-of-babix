@@ -1,0 +1,46 @@
+* Tower of Babix
+
+Tons of languages. Tons of snippets. You can run them all!
+
+*Quickstart*:
+
+If you have Nix and Emacs, from the repository root:
+
+#+begin_src sh
+  nix-shell                   # download/install compilers/runtimes
+  emacs -l babix.el babix.org # install emacs language modes
+#+end_src
+
+/The initial install will take a while./
+
+Once running, input =Ctrl-C Ctrl-C= on any code-block.
+
+** What is this?
+
+It's kind of like [[http://www.rosettacode.org/][Rosetta Code]], but you can actually run all the snippets.
+
+By leveraging [[https://nixos.org/][Nix]], you can browse and execute snippets from our library right
+inside [[https://www.gnu.org/software/emacs/][Emacs]].
+
+Of course you can write your own snippets too!
+
+** How does it work?
+
+Emacs has a crazy package called [[https://orgmode.org/][Orgmode]] which is like a souped up Markdown
+made by nerd geniuses (god bless them).
+
+One of its features is that it can execute code-blocks.
+
+But in order to execute block of various languages, you need all those
+compilers and runtimes.
+
+That's where Nix comes in with [[https://nixos.wiki/wiki/Development_environment_with_nix-shell][nix-shell]] which lets you install them all into a
+little isolated shell environment.
+
+To get Emacs to see the `$PATH` from the perspective of the nix-shell, it talks to
+[[https://direnv.net/][Direnv]] via [[https://github.com/wbolster/emacs-direnv][emacs-direnv]] which talks to [[https://github.com/target/lorri][Lorri]].
+
+Finally we have a bit of [[https://www.gnu.org/software/emacs/manual/html_node/eintr/][Emacs Lisp]] to [[./babix.el][tie it all together]].
+
+
+
