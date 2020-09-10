@@ -2,9 +2,8 @@ with import <nixpkgs> {};
 
 let
   deps = [
-    dmd
+    dmd dtools
     dotnet-sdk omnisharp-roslyn mono6
-    dtools
     fsharp
     gfortran
     go
@@ -14,7 +13,7 @@ let
     nodejs-14_x yarn
     ocaml
     perl
-    python37
+    python3
     R
     ruby
     rustc
