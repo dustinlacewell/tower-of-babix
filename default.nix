@@ -34,7 +34,7 @@ in writeScriptBin "babix" ''
 
    themes="default one one-light vibrant acario-dark acario-light city-lights challenger-deep dark+ dracula ephemeral fairy-floss flatwhite gruvbox gruvbox-light henna horizon Iosvkem laserwave material manegarm miramare molokai monokai-classic monokai-pro moonlight nord nord-light nova oceanic-next old-hope opera opera-light outrun-electric palenight plain peacock rouge snazzy solarized-dark solarized-light sourcerer spacegrey tomorrow-day tomorrow-night wilmersdorf zenburn mono-dark mono-light tron"
 
-   help="babix [BABIX-OPTS] [EMACS-OPTS]
+   help="babix [BABIX-OPTS] [EMACS-OPTS] FILE
 
   BABIX-OPTS:
     -h             list usage
