@@ -17,7 +17,7 @@ If you have Nix and Emacs, from the repository root:
 
 Once running, =Ctrl-C Ctrl-C= on any code-block.
 
-[[./demo.gif][C# Demo]]
+[[./demo.gif]]
 
 ** What is this?
 
