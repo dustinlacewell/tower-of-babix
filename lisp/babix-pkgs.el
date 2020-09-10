@@ -1,5 +1,3 @@
-(require 'ob-nasm (concat (file-name-directory (or load-file-name buffer-file-name)) "ob-nasm.el"))
-
 (use-package csharp-mode)
 (use-package ess) ;; R
 (use-package fsharp-mode)
@@ -60,3 +58,4 @@
                              org-babel-load-languages)
 
 
+(provide 'babix-pkgs)

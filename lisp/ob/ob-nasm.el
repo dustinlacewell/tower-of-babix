@@ -28,7 +28,7 @@
         (binary-file (concat temporary-file-directory "babel")))
     (write-region body nil source-file)
     (shell-command (format "nasm -f elf64 -o %s %s" object-file source-file))
-    (shell-command (format "ld -o %s %s" binary-file object-file))
+    (shell-command (format "gcc -m64 %s -o %s" object-file binary-file))
     (shell-command (format "chmod +x %s" binary-file))
     (s-trim (shell-command-to-string binary-file))))
 

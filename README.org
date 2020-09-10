@@ -4,7 +4,7 @@ Tons of languages. Tons of snippets. Run them all!
 
 *Quickstart*:
 
-If you have Nix and Emacs, from the repository root:
+If you have Nix, Emacs, Lorri and Direnv then inside the repo:
 
 #+begin_src sh
   lorri init                  # activate lorri in repo
@@ -17,7 +17,7 @@ If you have Nix and Emacs, from the repository root:
 
 Once running, =Ctrl-C Ctrl-C= on any code-block.
 
-[[./demo.gif]]
+[[./etc/demo.gif]]
 
 ** What is this?
 

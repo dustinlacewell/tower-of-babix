@@ -73,9 +73,8 @@ void main()
 
 ** F#
   :PROPERTIES:
-  :header-args :results value :post pp-fsharp(*this*)
+  :header-args:fsharp: :results value :post pp-fsharp(*this*)
   :END:
-
 *** Hello world
 #+begin_src fsharp
 printfn "Hello from F#."
@@ -214,6 +213,7 @@ print_string "Hello from OCaml.\n"
 #+begin_src rust
   println!("Hello from Rust.");
 #+end_src
+
 ** Scheme
 *** Hello world
 #+begin_src scheme
@@ -235,6 +235,7 @@ print_string "Hello from OCaml.\n"
     (call-interactively 'kill-region)
     (buffer-string))
 #+end_src
+
 ** R
 #+NAME: pp-r
 #+BEGIN_SRC emacs-lisp :results value :var out=""
