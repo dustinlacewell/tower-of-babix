@@ -73,5 +73,5 @@ in writeScriptBin "babix" ''
      export theme="default"
    fi
 
-   env PATH=${binPath}:$PATH ${emacs}/bin/emacs -l ${babix-lisp}/bootstrap.el $extras $@
+   env PATH=${binPath}:$PATH ${emacs}/bin/emacs -Q -l ${babix-lisp}/bootstrap.el $extras $@
 ''
