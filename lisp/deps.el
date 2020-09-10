@@ -1,4 +1,4 @@
-(require 'ob-nasm "./ob-nasm.el")
+(require 'ob-nasm (concat (file-name-directory (or load-file-name buffer-file-name)) "ob-nasm.el"))
 
 (use-package csharp-mode)
 (use-package ess) ;; R
