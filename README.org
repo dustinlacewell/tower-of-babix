@@ -30,6 +30,16 @@ pkgs.fetchFromGitHub {
 }
 #+end_src
 
+*Usage*:
+
+The =babix= cli args are the same as `emacs` except:
+- =-extras= will load some nice defaults
+- =-theme THEME= will load =THEME= (implies =-extras=)
+
+#+begin_src sh
+  $ babix -theme default babix.org
+#+end_src
+
 ** What is this?
 
 It's kind of like [[http://www.rosettacode.org/][Rosetta Code]], but you can actually run all the snippets.
