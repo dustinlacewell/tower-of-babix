@@ -59,12 +59,12 @@ in writeScriptBin "babix" ''
    fi
 
    themeFlag=""
+   export theme="default"
 
    for arg do
      shift
 
      if [ ! -z "$themeFlag" ]; then
-
        if [[ ! " $themes[@] " =~ " $arg " ]]; then
          printf "''${RED}✗''${YELLOW} '$arg' is not a valid theme.''${NC}\n"
          for t in $themes; do
@@ -81,16 +81,11 @@ in writeScriptBin "babix" ''
 
      if [ "$arg" = "-theme" ]; then
        themeFlag="1"
-       extras="-l ${babix-lisp}/babix-extras.el"
        continue
      fi
 
      set -- "$@" "$arg"
    done
 
-   if [ "$theme" = "" ]; then
-     export theme="default"
-   fi
-
-   env PATH=${binPath}:$PATH ${emacs}/bin/emacs -Q -l ${babix-lisp}/bootstrap.el $extras $@
+   env PATH=${binPath}:$PATH ${emacs}/bin/emacs -Q -l ${babix-lisp}/bootstrap.el $@
 ''
