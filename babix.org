@@ -1,0 +1,243 @@
+#+startup: overview align
+#+babel: :cache no
+#+PROPERTY: header-args :results output replace
+
+* Babel Evaluation Test
+Execute code of /arbitrary languages/!
+
+Use =C-c C-c= on any =#+begin_src= or =#+end_src= line.
+
+Anyone wanna see something *cool*?
+
+** Awk
+*** Hello world
+#+begin_src awk
+BEGIN { print "Hello from Awk."; }
+#+end_src
+
+** Bash
+*** Hello world
+#+begin_src sh
+echo "Hello from Bash."
+#+end_src
+
+** C
+*** Hello world
+#+begin_src C
+int main() {
+   printf("Hello from C.");
+   return 0;
+}
+#+end_src
+
+** C++
+*** Hello world
+#+begin_src C++
+  #include<iostream>
+  using namespace std;
+
+  int main() {
+    cout << "Hello World!";
+    return 0;
+  }
+#+end_src
+
+** C#
+*** Hello world
+#+begin_src csharp
+using System;
+
+class Program {
+    static void Main(string[] args) {
+        Console.WriteLine("Hello from C#.");
+    }
+}
+#+end_src
+
+** D
+*** Hello world
+#+begin_src D
+import std.stdio;
+
+void main()
+{
+    writeln("Hello from D!");
+}
+#+end_src
+
+** Elisp
+*** Hello world
+#+begin_src emacs-lisp :results value
+  (message "Hello from Elisp.")
+#+end_src
+
+** F#
+  :PROPERTIES:
+  :header-args :results value :post pp-fsharp(*this*)
+  :END:
+
+*** Hello world
+#+begin_src fsharp
+printfn "Hello from F#."
+#+end_src
+
+** Fortran
+*** Hello world
+#+begin_src fortran
+program hello
+  print *, "Hello from Fortran."
+end program
+#+end_src
+
+** Go
+*** Hello world
+#+begin_src go :imports "fmt"
+fmt.Println("Hello from Go.")
+#+end_src
+
+** Javascript
+*** Hello world
+#+begin_src js
+  console.log("Hello from Javascript.");
+#+end_src
+
+** Lua
+*** Hello world
+#+begin_src lua
+  print("Hello from Lua.")
+#+end_src
+
+** NASM
+These examples are all for linux 64 bit.
+*** Hello world
+#+begin_src nasm
+  global main
+
+  extern write, exit
+
+  section .rodata
+    msg: db "Hello from NASM.", 13
+    msglen: equ $ - msg
+
+  section .text
+
+  main:
+    mov rdi, 1        ;   STDOUT_FILENO
+    mov rsi, msg      ;   "Hello from NASM.",
+    mov rdx, msglen   ;   sizeof("Hello from NASM.")
+    call write
+
+    mov rdi, 0        ;   EXIT_SUCCESS
+    call exit
+
+#+end_src
+
+*** Nested loops
+#+begin_src nasm
+  global main
+
+  extern putchar
+
+  section .text
+
+  putstar:
+          mov rdi, '*'
+          call putchar
+          ret
+  putbreak:
+          mov rdi, 10
+          call putchar
+          ret
+  main:
+          mov rbx, 1              ; outer loop counter
+  outerloop:
+          mov rcx, rbx            ; inner loop counter
+  innerloop:
+          push rcx
+          push rbx
+
+          call putstar
+
+          pop rbx
+          pop rcx
+
+          dec rcx
+          jrcxz innerdone
+          jmp innerloop
+ 
+  innerdone:
+          call putbreak
+ 
+          inc rbx
+          cmp rbx, 6
+          jne outerloop
+ 
+          ret
+
+#+end_src
+
+** OCaml
+*** Hello world
+#+begin_src ocaml
+print_string "Hello from OCaml.\n"
+#+end_src
+
+** Perl
+*** Hello world
+#+begin_src perl
+  print("Hello from Perl.");
+#+end_src
+
+** Python
+*** Hello world
+#+begin_src python
+  print("Hello from Python.")
+#+end_src
+
+** R
+  :PROPERTIES:
+  :header-args:R: :post pp-r(*this*)
+  :END:
+*** Hello world
+#+begin_src R
+  print("Hello from R.")
+#+end_src
+
+** Ruby
+*** Hello world
+#+begin_src ruby
+  puts "Hello from Ruby."
+#+end_src
+
+** Rust
+*** Hello world
+#+begin_src rust
+  println!("Hello from Rust.");
+#+end_src
+** Scheme
+*** Hello world
+#+begin_src scheme
+(begin (display "Hello from Scheme.")
+       (newline))
+#+end_src
+
+* Post processors
+** F#
+#+NAME: pp-fsharp
+#+BEGIN_SRC emacs-lisp :results value :var out=""
+  (with-temp-buffer
+    (insert out)
+    (beginning-of-buffer)
+    (search-forward "val it :")
+    (beginning-of-line)
+    (call-interactively 'set-mark-command)
+    (end-of-buffer)
+    (call-interactively 'kill-region)
+    (buffer-string))
+#+end_src
+** R
+#+NAME: pp-r
+#+BEGIN_SRC emacs-lisp :results value :var out=""
+  (s-chop-prefix "[1] " out)
+#+end_src
+
