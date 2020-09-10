@@ -27,7 +27,7 @@ pkgs.fetchFromGitHub {
       repo = "tower-of-babix";
       rev = "a6c8ece992bffeae3788425dd4b3b5871e66a900";
       sha256 = "0ww2q5gykxm802z1kffmnrfahjlx123j1gfszklpsv0b1fccm100";
-};
+}
 #+end_src
 
 ** What is this?
