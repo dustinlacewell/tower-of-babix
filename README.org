@@ -8,7 +8,7 @@ If you have Nix then clone the repo and:
 
 #+begin_src sh
   nix-env -i -f .
-  babix -Q -theme default babix.org
+  babix -theme default babix.org
 #+end_src
 
 /The initial install will take ..a while./
