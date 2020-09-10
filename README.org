@@ -32,9 +32,21 @@ pkgs.fetchFromGitHub {
 
 *Usage*:
 
+#+begin_src text
+  babix [BABIX-OPTS] [EMACS-OPTS]
+
+  BABIX-OPTS:
+    -h             list usage
+    -themes        list theme names & exit
+    -theme NAME    use theme called NAME
+
+  EMACS-OPTS:
+    typical Emacs options
+#+end_src
+
 The =babix= cli args are the same as `emacs` except:
-- =-extras= will load some nice defaults
-- =-theme THEME= will load =THEME= (implies =-extras=)
+- =-themes= will exit after printing the available themes
+- =-theme THEME= will load =THEME= as some extra niceties
 
 #+begin_src sh
   $ babix -theme default babix.org

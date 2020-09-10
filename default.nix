@@ -34,6 +34,30 @@ in writeScriptBin "babix" ''
 
    themes="default one one-light vibrant acario-dark acario-light city-lights challenger-deep dark+ dracula ephemeral fairy-floss flatwhite gruvbox gruvbox-light henna horizon Iosvkem laserwave material manegarm miramare molokai monokai-classic monokai-pro moonlight nord nord-light nova oceanic-next old-hope opera opera-light outrun-electric palenight plain peacock rouge snazzy solarized-dark solarized-light sourcerer spacegrey tomorrow-day tomorrow-night wilmersdorf zenburn mono-dark mono-light tron"
 
+   help="babix [BABIX-OPTS] [EMACS-OPTS]
+
+  BABIX-OPTS:
+    -h             list usage
+    -themes        print theme names & exit
+    -theme NAME    use theme called NAME
+
+  EMACS-OPTS:
+    typical Emacs options"
+
+   if [[ " $@[@] " =~ "-h" ]]; then
+       echo "$help"
+       exit 0
+   fi
+
+   if [[ " $@[@] " =~ "-themes" ]]; then
+       echo "Available themes:"
+       for t in $themes; do
+         let "i=$RANDOM % 256"
+         echo -en "\e[38;5;''${i}m$t \e[0m";
+       done
+       exit 0
+   fi
+
    themeFlag=""
 
    for arg do
@@ -57,11 +81,6 @@ in writeScriptBin "babix" ''
 
      if [ "$arg" = "-theme" ]; then
        themeFlag="1"
-       extras="-l ${babix-lisp}/babix-extras.el"
-       continue
-     fi
-
-     if [ "$arg" = "-extras" ]; then
        extras="-l ${babix-lisp}/babix-extras.el"
        continue
      fi
