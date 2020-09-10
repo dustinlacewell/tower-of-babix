@@ -4,13 +4,11 @@ Tons of languages. Tons of snippets. Run them all!
 
 *Quickstart*:
 
-If you have Nix, Emacs, Lorri and Direnv then inside the repo:
+If you have Nix then clone the repo and:
 
 #+begin_src sh
-  lorri init                  # activate lorri in repo
-  direnv allow                # let direnv work here
-  nix-shell                   # download/install compilers/runtimes
-  emacs -l babix.el babix.org # install emacs language modes
+  nix-env -i -f .
+  babix -Q -theme default babix.org
 #+end_src
 
 /The initial install will take ..a while./
@@ -18,6 +16,19 @@ If you have Nix, Emacs, Lorri and Direnv then inside the repo:
 Once running, =Ctrl-C Ctrl-C= on any code-block.
 
 [[./etc/demo.gif]]
+
+*Installation*:
+
+Add the following to your system or user packages:
+
+#+begin_src nix
+pkgs.fetchFromGitHub {
+      owner = "dustinlacewell";
+      repo = "tower-of-babix";
+      rev = "a6c8ece992bffeae3788425dd4b3b5871e66a900";
+      sha256 = "0ww2q5gykxm802z1kffmnrfahjlx123j1gfszklpsv0b1fccm100";
+};
+#+end_src
 
 ** What is this?
 
@@ -33,18 +44,30 @@ Of course you can write your own snippets too!
 Emacs has a crazy package called [[https://orgmode.org/][Orgmode]] which is like a souped up Markdown
 made by nerd geniuses (god bless them).
 
-One of its features is that it can execute code-blocks.
+One of its features is that it can execute code-blocks!
 
 But in order to execute block of various languages, you need all those
 compilers and runtimes.
 
-That's where Nix comes in with [[https://nixos.wiki/wiki/Development_environment_with_nix-shell][nix-shell]] which lets you install them all into a
-little isolated shell environment.
+Nix makes it easy to get them all to you.
 
-To get Emacs to see the `$PATH` from the perspective of the nix-shell, it talks to
-[[https://direnv.net/][Direnv]] via [[https://github.com/wbolster/emacs-direnv][emacs-direnv]] which talks to [[https://github.com/target/lorri][Lorri]].
-
-Finally we have a bit of [[https://www.gnu.org/software/emacs/manual/html_node/eintr/][Emacs Lisp]] to [[./babix.el][tie it all together]].
-
-
-
+** What languages are included?
+- Awk
+- Bash
+- C
+- C++
+- C#
+- D
+- Emacs Lisp
+- F#
+- Fortran
+- Go
+- Javascript
+- Lua
+- NASM
+- OCaml
+- Python
+- R
+- Ruby
+- Rust
+- Scheme
