@@ -17,6 +17,7 @@ let
     R
     ruby
     rustc
+    X11basic
   ];
 
   binPath = lib.makeBinPath deps;

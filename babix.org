@@ -54,6 +54,26 @@ class Program {
 }
 #+end_src
 
+*** Example of out parameters
+#+begin_src csharp
+  using System;
+
+  class OutExample {
+
+      static void Adder(int a, int b, out int result) {
+          result = a + b;
+      }
+
+      static void Main() {
+          var a = 5;
+          var b = 10;
+          int result;
+          Adder(a, b, out result);
+          Console.WriteLine($"r = {result}");
+      }
+  }
+#+end_src
+
 ** D
 *** Hello world
 #+begin_src D
@@ -163,16 +183,15 @@ These examples are all for linux 64 bit.
           dec rcx
           jrcxz innerdone
           jmp innerloop
- 
+
   innerdone:
           call putbreak
- 
+
           inc rbx
           cmp rbx, 6
           jne outerloop
- 
-          ret
 
+          ret
 #+end_src
 
 ** OCaml
